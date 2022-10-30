@@ -1,0 +1,22 @@
+<div class="col-lg-5">
+    <div class="search-box-wrapper">
+        <div class="search-box-inner-wrap">
+            <div class="search-title text-white d-flex">
+                <ul>
+                    <p>
+                    کلمه مورد نظر خودتو جستجو کن
+                    </p>
+                </ul>
+                </div>
+                <form class="search-box-inner" action="/product/search" method="get">
+                        <div class="search-field-wrap">
+                            <input  value="{{request.Get.q}}" name='q' type="text"  class="search-field" placeholder="جستجو..." />
+                            <div class="search-btn">
+                                <button><i class="icon-search" value="{{request.Get.q}}"></i></button>
+                            </div>
+                       </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

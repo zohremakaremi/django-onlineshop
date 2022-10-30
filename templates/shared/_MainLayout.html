@@ -1,0 +1,45 @@
+{% load static %}
+{% load render_partial %}
+<!DOCTYPE html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %} {% endblock %}
+    
+    {% include 'shared/_HeaderRefrences.html' %}
+</head>
+<body style="text-align: right;direction: rtl">
+<!-- pre loader start -->
+<div class="pa-preloader">
+    <div class="pa-ellipsis">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<!-- pre loader end -->
+<!-- main wrapper start -->
+<div class="pa-main-wrapper">
+    <!-- banner start -->
+    {% render_partial 'header' %}
+
+    <!-- footer start -->
+    {% block content %}
+    {% endblock content %} 
+    {% render_partial 'footer' %}
+    {% include 'shared/_FooterRefrences.html' %}
+    <!-- footer end -->
+    <!-- copyright start -->
+
+    <!-- copyright end -->
+
+</div>
+<!-- main wrapper end -->
+
+    
+</body>
+</html>

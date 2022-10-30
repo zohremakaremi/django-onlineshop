@@ -1,0 +1,112 @@
+  {% extends 'shared/_MainLayout.html' %}
+  {% load static %}
+  {% load render_partial %}
+  {% load ratings %}
+  {% block content %}
+  <!--    <div class="pa-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-6">
+                    <div class="pa-banner-text">
+                        <h4 class="pa-banner-category">کرم آلوورا</h4>
+                        <h2>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</h2>
+                        <p>با کمترین هزینه برای انجام تمرینات ورزشی ، امتحان کنیداگر محله مدرسه از مزیت این دستورالعمل بهره مند شود محرک تلاش می دیس. کند یک لذت است که در کیلام درد ، درد در کوپیدات مورد انتقاد قرار گرفته است بدون فوتبال پرواز نتیجه.</p>
+                        <a href="javascript:;" class="pa-view-all">مشاهده همه</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner end -->
+    <!-- top medicine start -->
+    <div class="pa-medicine spacer-top spacer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="pa-medicine-box">
+                        <img src="{% static 'images/students-1.jpg' %}" alt="image" class="img-fluid"/>
+                        <h2><a href="/students">دانش آموزان </a></h2>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="pa-medicine-box">
+                        <img src="{% static 'images/teacher-1.jpg' %}" alt="image" class="img-fluid"/>
+                        <h2><a href="teachers">معلم ها </a></h2>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="pa-medicine-box">
+                        <img src="{% static 'images/school.jpg' %}" alt="image" class="img-fluid"/>
+                        <h2><a href="schools">مدارس</a></h2>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+
+    <div class="pa-product spacer-top">
+        <div class="container">
+            <div class="pa-heading">
+                <h5> معلمان جدید</h5>
+            </div>
+            <div class="row">
+
+                {% for group in latest_teachers %}
+                {% for teacher in group %}
+                <div class="col-lg-4 col-sm-6">
+                    <div class="pa-product-box">
+                     
+                        <div class="pa-product-content">
+                            <h4><a href="{{ teacher.get_absolute_url }}">{{teacher.full_name}}</a></h4>
+                            <p class="pa-product-rating">
+                                {% comment %} <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> {% endcomment %}
+                                {% ratings teacher %}
+                            </p>
+                        </div>
+                       
+                    </div>
+                </div>
+                {% endfor %}
+                                
+                {% endfor %} 
+
+            </div>
+        </div>
+    </div>
+  
+    <div class="pa-trending-product">
+        <div class="container">
+            <div class="pa-heading">
+                <h5> مدارس جدید</h5>
+            </div>
+            <div class="row">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+
+                        {% for group in latest_schools %}
+                        {% for school in group %}
+                        <div class="swiper-slide">
+                            <div class="pa-product-box">
+                             
+                                <div class="pa-product-content">
+                                    <h4><a href="{{ school.get_absolute_url }}">{{school.name}}</a></h4>
+                                    <p class="pa-product-rating">
+                                        {% ratings school %}                                    </p>
+                                </div>
+                            
+                            </div>
+                        </div>
+                        {% endfor %}
+                                
+                        {% endfor %} 
+                    </div>
+                    <!-- Add Arrows -->
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+>
+    <!-- blog end -->
+      {% endblock content %} 

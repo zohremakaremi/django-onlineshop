@@ -1,0 +1,66 @@
+ {% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% load render_partial %}
+{% block title %} سبدخرید {% endblock %}
+{% block content %}
+ <div class="pa-cart spacer-top spacer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="pa-cart-box">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>تصویر محصول</th>
+                                    <th>نام محصول</th>
+                                    <th>قیمت واحد</th>
+                                    <th> مقدار</th>
+                                    <th> کل</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in cart %}
+                                <tr>
+                                    <td>
+                                        <div class="pa-cart-img">
+                                            <img src="{{ item.product.image.url }}"  alt="image" class="img-fluid"/>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        {{ item.product }}
+                                    </td>
+                                    <td>{{ item.price }}</td>
+                                    <td>
+                                        <div class="pa-cart-quantity">                                            
+                                            {{ item.quantity }}                                           
+                                        </div>
+                                    </td>
+                                    <td>{{ item.total_price }}</td>
+                                </tr>
+                                {% endfor %}
+                                <tr>
+                                    <td colspan="3"><a href="{% url 'eshop_products:product_list' %}" class="pa-btn">ادامه خرید</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="pa-garnd-total">
+                            {% comment %} <p>
+                                <span>اتهامات حمل و نقل</span>
+                                <span>20 تومان</span>
+                            </p>
+                            <p>
+                                <span>مالیات کالا و خدمات</span>
+                                <span>18%</span>
+                            </p> {% endcomment %}
+                            <p>
+                                <span>اعطای کل:</span>
+                                <span>{{ cart.get_total_price }}</span>
+                            </p>
+                            <a href="{% url 'eshop_order:order_create' %}" class="pa-btn">ادامه برای پرداخت</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

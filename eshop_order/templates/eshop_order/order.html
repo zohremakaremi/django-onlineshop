@@ -1,0 +1,60 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% block content %}
+
+ <!-- breadcrumb-area start -->
+<br>
+        <!-- breadcrumb-area end -->
+
+<!-- main-content-wrap start -->
+<div class="main-content-wrap section-ptb lagin-and-register-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-12 ml-auto mr-auto">
+                <div class="login-register-wrapper">
+                <!-- login-register-tab-list start -->
+                    <div class="login-register-tab-list nav">
+                    <p>قیمت کل : {{ order.get_total_price }}</p>
+                    <br><br>
+                    <br><br>
+                    <br><br>
+
+                    
+                        
+                    </div>
+                            <!-- login-register-tab-list end -->
+                    <div class="tab-content">
+                        <div id="lg1" class="tab-pane active">
+                            <div class="login-form-container">
+                                <div class="login-register-form">
+                                    <form action="{% url 'eshop_order:apply_coupon' order.id %} "method="post">
+                                        <div class="login-input-box">
+                                            {%csrf_token%}
+                                                {{ form.as_p }}
+                                            <input type="submit" value="اعمال کد تخفیف">                                          
+                                        </div>
+                                        
+                                    </form>
+                                    <div class="button-box">
+                                         
+                                         <br>
+                                            <a href="{% url 'eshop_order:order_pay' order.id %}" >
+                        <button class="pa-btn"  type="submit"><span>پرداخت </span></button>
+                    </a>
+                     <br>
+                                          <br>
+
+                                            <br>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main-content-wrap end -->
+  
+{% endblock content %}
