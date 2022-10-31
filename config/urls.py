@@ -21,7 +21,7 @@ from . import views
 
 
 urlpatterns = [
-    path('products/',include('eshop_products.urls', namespace='eshop_products')),
+    path('',include('eshop_products.urls', namespace='eshop_products')),
     path('accounts/',include('eshop_accounts.urls', namespace='eshop_accounts')),
     path('orders/',include('eshop_order.urls', namespace='eshop_order')),
 
