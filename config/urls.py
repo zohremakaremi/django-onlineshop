@@ -21,14 +21,15 @@ from . import views
 
 
 urlpatterns = [
-    path('',include('eshop_products.urls', namespace='eshop_products')),
+    path('', views.HomeView.as_view(), name='home'),
+    path('products/',include('eshop_products.urls', namespace='eshop_products')),
     path('accounts/',include('eshop_accounts.urls', namespace='eshop_accounts')),
     path('orders/',include('eshop_order.urls', namespace='eshop_order')),
-
     path('header',views.Header.as_view(), name='header'),
     path('menu/', views.Header.as_view(), name='menu'),
-
     path('footer',views.footer, name='footer'),
+    path('', include('eshop_contact.urls')),
+    path('about-us', views.about_page),
     path('admin/', admin.site.urls),
 ]
 if settings.DEBUG:

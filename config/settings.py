@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'eshop_accounts',
     'eshop_order',
     'eshop_menu',
+    'eshop_slider',
+    'eshop_contact',
+    'eshop_settings',
     # Third-party apps
     'django_celery_beat',
     'ckeditor',

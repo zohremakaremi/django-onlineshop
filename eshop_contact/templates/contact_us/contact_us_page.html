@@ -1,0 +1,65 @@
+{% extends 'shared/_MainLayout.html' %} {% load static %} {% block content %}
+<div class="pa-contact spacer-top">
+  <div class="container">
+      <div class="row">          
+          <div class="col-md-8">
+              <div class="pa-contact-form">
+                  <form  method="POST" action="">
+                    {% csrf_token %}
+                    <label> نام و نام خانوادگی</label>
+                    {{ contact_form.full_name }} 
+                    {% for error in contact_form.full_name.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    <label> ایمیل</label>
+                    {{ contact_form.email }} 
+                    {% for error in contact_form.email.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    <label>عنوان</label>
+                    {{ contact_form.subject }}
+                     {% for error in contact_form.subject.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    <label>متن پیام</label>
+                    {{ contact_form.text }}
+                     {% for error in contact_form.text.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+
+                    <button class="pa-btn submitForm" type="submit">ارسال</button>
+                      <div class="response"></div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- contact end -->
+<!-- contact detail start -->
+<div class="pa-contact-detail">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-4 col-md-6">
+              <div class="pa-contact-box">
+                  <h4>آدرس</h4>
+                  <p>{{ setting.address }}</p>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+              <div class="pa-contact-box">
+                  <h4>شماره تماس</h4>
+                  <p>{{ setting.phone }} </p>
+                  <p>{{ setting.mobile }}</p>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+              <div class="pa-contact-box">
+                  <h4>پست الکترونیک</h4>
+                  <p>{{ setting.email }}</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

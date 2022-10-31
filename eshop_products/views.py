@@ -7,11 +7,6 @@ from eshop_slider.models import Slider
 from eshop_order.forms import CartAddForm
 
 
-class HomeView(View):
-	def get(self, request):
-		sliders = Slider.objects.all()
-		return render(request, 'eshop_products/home.html', {})
-
 class ListView(View):
 	paginate_by = 10
 	def get(self, request, category_slug=None):
