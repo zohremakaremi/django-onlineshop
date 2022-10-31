@@ -3,12 +3,13 @@ from django.views import View
 from .models import Product, Category
 from django.contrib import messages
 from utils import IsAdminUserMixin
+from eshop_slider.models import Slider
 from eshop_order.forms import CartAddForm
 
 
 class HomeView(View):
-	def get(self, request, category_slug=None):
-		
+	def get(self, request):
+		sliders = Slider.objects.all()
 		return render(request, 'eshop_products/home.html', {})
 
 class ListView(View):
