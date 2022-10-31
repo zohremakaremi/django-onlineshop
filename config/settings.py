@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django_celery_beat',
     'ckeditor',
     'django_render_partial',
+    'star_ratings'
     
 ]
 
@@ -147,3 +148,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "static_cdn", "media_root")
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STAR_RATINGS_STAR_HEIGHT=15

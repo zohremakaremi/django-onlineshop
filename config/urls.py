@@ -29,8 +29,9 @@ urlpatterns = [
     path('menu/', views.Header.as_view(), name='menu'),
     path('footer',views.footer, name='footer'),
     path('', include('eshop_contact.urls')),
-    path('about-us', views.about_page),
+    path('about-us/', views.about_page),
     path('admin/', admin.site.urls),
+    path('ratings/', include('star_ratings.urls', namespace='ratings')),  
 ]
 if settings.DEBUG:
     # add root static files

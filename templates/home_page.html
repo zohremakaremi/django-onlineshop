@@ -1,4 +1,5 @@
 {% extends 'shared/_MainLayout.html' %} {% load static %} {% load render_partial%} 
+{% load ratings %}
 {% block title %} خانه{% endblock %}
 {% block content %}
 
@@ -544,9 +545,7 @@
             <div class="pa-product-content">
               <h4><a href="{{ product.get_absolute_url }}">{{ product.name}}</a></h4>
               <p class="pa-product-rating">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i
-                ><i class="fas fa-star"></i><i class="far fa-star"></i
-                ><i class="far fa-star"></i>
+               {% ratings product %}
               </p>
               <p>{{ product.price}} تومان</p>
             </div>
@@ -783,9 +782,7 @@
                   <div class="pa-product-content">
                     <h4><a href="{{ product.get_absolute_url }}">{{ product.name}}</a></h4>
                     <p class="pa-product-rating">
-                      <i class="fas fa-star"></i><i class="fas fa-star"></i
-                      ><i class="fas fa-star"></i><i class="far fa-star"></i
-                      ><i class="far fa-star"></i>
+                      <i class="fas fa-star">{% ratings product %}</i>
                     </p>
                     <p>{{ product.price}}تومان</p>
                   </div>
