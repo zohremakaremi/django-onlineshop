@@ -1,7 +1,7 @@
 {% extends 'shared/_MainLayout.html' %}
 {% load static %}
-{% load render_partial %}
 {% block title %} محصولات{% endblock %}
+{% load render_partial %}
 {% block content %}
 
 <!-- breadcrumb end -->
@@ -12,8 +12,6 @@
     <div class="container">
         <div class="pa-heading">
             </br>
-            
-            <h1>محصولات </h1>
         </div>
         <div class="row">
             {% for product in products %}
